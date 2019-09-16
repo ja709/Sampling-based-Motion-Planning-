@@ -1,0 +1,375 @@
+Script started on Thu 15 Nov 2018 02:46:46 PM EST
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server[00m$ cd rostopic pub -r 20 /gazebo/seet_model_state gazebo_msgs/ModelState '{model_name: coke_can, pose: { position: {{ x: 1, y: 0, z: 2 }, orientation: {x: 0, y: 0.491983115673, z: 0, w: 0.8706048133099 } }, twist: { linear: { x: 0, y: 0, z: 0 }, angular: { x: 0, y: 0, z: 0}  },, reference_frame: world }'[A[A[A[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server[00m$ [C[C[Cservice call /gazebo/set_model_state '{model_state: { model_name: coke_can, pose: { position: { x: 0.3, y:[C0.2 ,z: 0 }, orientation: {x: 0, y: 0.491983115673, z: 0, w: 0.870604813099 } }, twist: { linear: {x: 0.0 , y: 0 ,z: 0 } , angular: { x: 0.0 , y: 0 , z: 0.0
+[5@ } , reference_frame: world }[C[C[C[A[A[A[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server[00m$ [C[C[Ctopic pub -r 20 /gazebo/set_model_state gazebo_msgs/ModelState '{model_name: coke_can, pose: { position: {[Cx: 1, y: 0, z: 2 }, orientation: {x: 0, y: 0.491983115673, z: 0, w: 0.870604813099 } }, twist: { linear: { x: 0, y: 0, z: 0 }, angular: { x: 0, y: 0, z: 0} 
+[5P, reference_frame: world[C[C[C[A[A[A[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server[00m$ cd [K
+[K
+[K
+[K
+[K[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscripts
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ d[Kls
+[0m[01;32madd_two_ints_client.py[0m  [01;32mlistener.py[0m          talker (another copy).py
+[01;32madd_two_ints_server.py[0m  [01;32mtalker2.py[0m           talker (copy).py
+[01;32mlistener_ackermann.py[0m   [01;32mtalker_ackermann.py[0m  [01;32mtalker.py[0m
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ ls-l
+ls-l: command not found
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ ls -l
+total 36
+-rwxrwxr-x 1 jeeho jeeho  679 Nov 14 16:20 [0m[01;32madd_two_ints_client.py[0m
+-rwxrwxr-x 1 jeeho jeeho  463 Nov 14 16:23 [01;32madd_two_ints_server.py[0m
+-rwxrwxr-x 1 jeeho jeeho 2627 Nov 14 17:21 [01;32mlistener_ackermann.py[0m
+-rwxrwxr-x 1 jeeho jeeho  679 Nov 15 14:21 [01;32mlistener.py[0m
+-rwxrwxr-x 1 jeeho jeeho  614 Nov 14 16:51 [01;32mtalker2.py[0m
+-rwxrwxr-x 1 jeeho jeeho 2327 Nov 14 17:10 [01;32mtalker_ackermann.py[0m
+-rw-rw-r-- 1 jeeho jeeho 2345 Nov 14 17:21 talker (another copy).py
+-rw-rw-r-- 1 jeeho jeeho  861 Nov 14 16:53 talker (copy).py
+-rwxrwxr-x 1 jeeho jeeho  559 Nov 15 14:45 [01;32mtalker.py[0m
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ d[Krosrun pqp_server ta lker.yp[K[Kpy
+[INFO] [1542311235.925163, 0.000000]: (5, 9, 0.3)
+Traceback (most recent call last):
+  File "/home/jeeho/catkin_ws/src/pqp_server/scripts/talker.py", line 22, in <module>
+    talker()
+  File "/home/jeeho/catkin_ws/src/pqp_server/scripts/talker.py", line 16, in talker
+    pub.publish(position)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/topics.py", line 879, in publish
+    data = args_kwds_to_message(self.data_class, args, kwds)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/msg.py", line 122, in args_kwds_to_message
+    return data_class(*args)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/gazebo_msgs/msg/_ModelStates.py", line 77, in __init__
+    super(ModelStates, self).__init__(*args, **kwds)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genpy/message.py", line 294, in __init__
+    raise TypeError("Invalid number of arguments, args should be %s"%str(self.__slots__)+" args are"+str(args))
+TypeError: Invalid number of arguments, args should be ['name', 'pose', 'twist'] args are((5, 9, 0.3),)
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rostopic info /gazeb o/set_model_states
+ERROR: Unknown topic /gazebo/set_model_states
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rostopic info /gazeboo/set_model_states[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[Crun pqp_server tal[11Pker.py[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[Ctopic info /gazebo/set_model_states
+ERROR: Unknown topic /gazebo/set_model_states
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ tos[K[K[Krostopic list
+/clock
+/gazebo/link_states
+/gazebo/model_states
+/gazebo/parameter_descriptions
+/gazebo/parameter_updates
+/gazebo/set_link_state
+/gazebo/set_model_state
+/rosout
+/rosout_agg
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rostopic li[K[Kinfo /gazeb o/set_model_state
+Type: gazebo_msgs/ModelState
+
+Publishers: None
+
+Subscribers: 
+ * /gazebo (http://jeeho-Razer-Blade:37109/)
+
+
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rostopic info /gazeboo/set_model_state[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crosrun pqp_server ta lker.py
+[INFO] [1542311564.091339, 0.000000]: (5, 9, 0.3)
+Traceback (most recent call last):
+  File "/home/jeeho/catkin_ws/src/pqp_server/scripts/talker.py", line 22, in <module>
+    talker()
+  File "/home/jeeho/catkin_ws/src/pqp_server/scripts/talker.py", line 16, in talker
+    pub.publish(position)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/topics.py", line 879, in publish
+    data = args_kwds_to_message(self.data_class, args, kwds)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/msg.py", line 122, in args_kwds_to_message
+    return data_class(*args)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/gazebo_msgs/msg/_ModelState.py", line 80, in __init__
+    super(ModelState, self).__init__(*args, **kwds)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genpy/message.py", line 294, in __init__
+    raise TypeError("Invalid number of arguments, args should be %s"%str(self.__slots__)+" args are"+str(args))
+TypeError: Invalid number of arguments, args should be ['model_name', 'pose', 'twist', 'reference_frame'] args are((5, 9, 0.3),)
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rostopic list
+/clock
+/gazebo/link_states
+/gazebo/model_states
+/gazebo/parameter_descriptions
+/gazebo/parameter_updates
+/gazebo/set_link_state
+/gazebo/set_model_state
+/rosout
+/rosout_agg
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rostopic pub /gazebo /set_model_state
+Usage: rostopic pub /topic type [args...]
+
+rostopic: error: topic type must be specified
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rostopic pub /gazebo//set_model_state[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[C[C[C[C[C[C[7Plist
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crun pqp_server tallker.py[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[Ctopic info /gazebo/set_model_state[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kmodel_states
+Type: gazebo_msgs/ModelStates
+
+Publishers: 
+ * /gazebo (http://jeeho-Razer-Blade:37109/)
+
+Subscribers: None
+
+
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rostopic info /gazeboo/model_states pbu[K[Kub [K[K[K[K[K[K
+ERROR: Unknown topic /gazebo/model_state
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rostopic info /gazeboo/model_states
+Type: gazebo_msgs/ModelStates
+
+Publishers: 
+ * /gazebo (http://jeeho-Razer-Blade:37109/)
+
+Subscribers: None
+
+
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ ros m[K[Kmsg show d[KMo[K[Kmodel_st ate
+Could not find msg 'model_state'
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosmsg show model_staates
+Could not find msg 'model_states'
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosmsg show model_staates[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmo[K[Krosmsg sho [Kw get_mode l_state
+Could not find msg 'get_model_state'
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosmsg show get_modell_state[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[KModel_St ate
+Could not find msg 'Model_State'
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosmsg show Model_Staates
+Could not find msg 'Model_States'
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ t[Krostopic list
+/clock
+/gazebo/link_states
+/gazebo/model_states
+/gazebo/parameter_descriptions
+/gazebo/parameter_updates
+/gazebo/set_link_state
+/gazebo/set_model_state
+/rosout
+/rosout_agg
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosmsg show model_st ates
+Could not find msg 'model_states'
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosmsg show model_staates[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[Kset_mode l_state
+Could not find msg 'set_model_state'
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ s[Krosmsg show set_modell_state[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K gazebo
+Could not find msg 'gazebo'
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosmsg show gazebo[K[K[K[K[K[K/gazebo/ model_states
+Unable to load msg [/gazebo/model_states]: invalid name [/gazebo/model_states]
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosmsg show /gazebo/mmodel_states[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K/gazebo/ set_model_state
+Unable to load msg [/gazebo/set_model_state]: invalid name [/gazebo/set_model_state]
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosmsg show /gazebo/sset_model_state[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[KModelSta te
+[gazebo_msgs/ModelState]:
+string model_name
+geometry_msgs/Pose pose
+  geometry_msgs/Point position
+    float64 x
+    float64 y
+    float64 z
+  geometry_msgs/Quaternion orientation
+    float64 x
+    float64 y
+    float64 z
+    float64 w
+geometry_msgs/Twist twist
+  geometry_msgs/Vector3 linear
+    float64 x
+    float64 y
+    float64 z
+  geometry_msgs/Vector3 angular
+    float64 x
+    float64 y
+    float64 z
+string reference_frame
+
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ ./[K[Kro[K[Krosmsg show ModelStatte[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[C[C[C[C[C[C[C[C[C/gazebo/s[Ct_model_state[3Pmodel_states[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[2Pgazebo
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cset_modell_state[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[C[C[C[C[C[C[C[C[Cmodel_sta[3Ptes[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[7Ptopic list
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmsg show Model_Staates[K[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[C[C[C[C[C[C[C[C[Cget_model_state[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[C[C[C[C[C[C[C[C[Cmodel_sta[3Ptes[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[C[C[C[C[C[C[C[C[Cget_model_state[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[C[C[C[C[C[C[C[C[CModel_Sta[4Ptes[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[7Ptopic list
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmsg show Model_Staates[K[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[C[C[C[C[C[C[C[C[Cget_model_state[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[C[C[C[C[C[C[C[C[Cmodel_sta[3Ptes[K[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[Ctopic info /gazebo/model_states[Ks[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[C[C[C[C[C[Cpub /gazebo/set_model_state[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[C[C[C[C[C[C[7Plist
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crun pqp_server tallker.py[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[Ctopic info /gazebo/set_model_state[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[C[C[C[C[C[C[7Plist
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cinfo /gazeboo/set_model_state[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[Crun pqp_server tal[10Pker.py[A]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ [C[C[C[7Ptopic list
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crun pqp_server tallker.py
+Traceback (most recent call last):
+  File "/home/jeeho/catkin_ws/src/pqp_server/scripts/talker.py", line 25, in <module>
+    talker()
+  File "/home/jeeho/catkin_ws/src/pqp_server/scripts/talker.py", line 18, in talker
+    rospy.loginfo(position)
+NameError: global name 'position' is not defined
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosrun pqp_server tallker.py
+Traceback (most recent call last):
+  File "/home/jeeho/catkin_ws/src/pqp_server/scripts/talker.py", line 25, in <module>
+    talker()
+  File "/home/jeeho/catkin_ws/src/pqp_server/scripts/talker.py", line 18, in talker
+    rospy.loginfo(x,y,z)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1167, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1286, in _log
+    self.handle(record)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1296, in handle
+    self.callHandlers(record)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1336, in callHandlers
+    hdlr.handle(record)
+  File "/usr/lib/python2.7/logging/__init__.py", line 759, in handle
+    self.emit(record)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/roslogging.py", line 182, in emit
+    record_message = _defaultFormatter.format(record)
+  File "/usr/lib/python2.7/logging/__init__.py", line 465, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python2.7/logging/__init__.py", line 329, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ li[K[Krosmsg show d[KModel_[KSta te
+[gazebo_msgs/ModelState]:
+string model_name
+geometry_msgs/Pose pose
+  geometry_msgs/Point position
+    float64 x
+    float64 y
+    float64 z
+  geometry_msgs/Quaternion orientation
+    float64 x
+    float64 y
+    float64 z
+    float64 w
+geometry_msgs/Twist twist
+  geometry_msgs/Vector3 linear
+    float64 x
+    float64 y
+    float64 z
+  geometry_msgs/Vector3 angular
+    float64 x
+    float64 y
+    float64 z
+string reference_frame
+
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ y[Kgedit control.py
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rostopic list
+/clock
+/gazebo/link_states
+/gazebo/model_states
+/gazebo/parameter_descriptions
+/gazebo/parameter_updates
+/gazebo/set_link_state
+/gazebo/set_model_state
+/rosout
+/rosout_agg
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosmsg show ModelSta tes
+[gazebo_msgs/ModelStates]:
+string[] name
+geometry_msgs/Pose[] pose
+  geometry_msgs/Point position
+    float64 x
+    float64 y
+    float64 z
+  geometry_msgs/Quaternion orientation
+    float64 x
+    float64 y
+    float64 z
+    float64 w
+geometry_msgs/Twist[] twist
+  geometry_msgs/Vector3 linear
+    float64 x
+    float64 y
+    float64 z
+  geometry_msgs/Vector3 angular
+    float64 x
+    float64 y
+    float64 z
+
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosrun pqp_server 
+add_two_ints_client.py  listener.py             talker_ackermann.py
+add_two_ints_server.py  pqp_ros_server          talker.py
+listener_ackermann.py   talker2.py              
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosrun pqp_server [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kls
+control.py  [0m[01;32mlistener.py[0m  [01;32mtalker.py[0m  [01;34mtemp[0m
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ chmod +x control.py
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ ls
+[0m[01;32mcontrol.py[0m  [01;32mlistener.py[0m  [01;32mtalker.py[0m  [01;34mtemp[0m
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosrun pqp_server co ntrol.py
+import: not authorized `rospy' @ error/constitute.c/WriteImage/1028.
+from: can't read /var/mail/gazebo_msgs
+from: can't read /var/mail/tf.transformations
+from: can't read /var/mail/geometry_msgs.msg
+from: can't read /var/mail/math
+/home/jeeho/catkin_ws/src/pqp_server/scripts/control.py: line 8: x: command not found
+/home/jeeho/catkin_ws/src/pqp_server/scripts/control.py: line 9: y: command not found
+/home/jeeho/catkin_ws/src/pqp_server/scripts/control.py: line 10: theta: command not found
+/home/jeeho/catkin_ws/src/pqp_server/scripts/control.py: line 13: syntax error near unexpected token `('
+/home/jeeho/catkin_ws/src/pqp_server/scripts/control.py: line 13: `def newState (msg):'
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ ros [Krun pqp_server ta lker.py
+Traceback (most recent call last):
+  File "/home/jeeho/catkin_ws/src/pqp_server/scripts/talker.py", line 25, in <module>
+    talker()
+  File "/home/jeeho/catkin_ws/src/pqp_server/scripts/talker.py", line 18, in talker
+    rospy.loginfo(x,y,z)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1167, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1286, in _log
+    self.handle(record)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1296, in handle
+    self.callHandlers(record)
+  File "/usr/lib/python2.7/logging/__init__.py", line 1336, in callHandlers
+    hdlr.handle(record)
+  File "/usr/lib/python2.7/logging/__init__.py", line 759, in handle
+    self.emit(record)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rosgraph/roslogging.py", line 182, in emit
+    record_message = _defaultFormatter.format(record)
+  File "/usr/lib/python2.7/logging/__init__.py", line 465, in format
+    record.message = record.getMessage()
+  File "/usr/lib/python2.7/logging/__init__.py", line 329, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosrun pqp_server tallker.py
+[INFO] [1542314689.493351, 0.000000]: hello world 0.0
+[INFO] [1542314689.609600, 7288.925000]: hello world 7288.925
+[INFO] [1542314689.610052, 7288.926000]: hello world 7288.926
+[INFO] [1542314689.711188, 7289.026000]: hello world 7289.026
+[INFO] [1542314689.810716, 7289.126000]: hello world 7289.126
+[INFO] [1542314689.911653, 7289.227000]: hello world 7289.227
+[INFO] [1542314690.010855, 7289.326000]: hello world 7289.326
+[INFO] [1542314690.110776, 7289.426000]: hello world 7289.426
+[INFO] [1542314690.211275, 7289.526000]: hello world 7289.526
+[INFO] [1542314690.311868, 7289.626000]: hello world 7289.626
+[INFO] [1542314690.411493, 7289.726000]: hello world 7289.726
+[INFO] [1542314690.512760, 7289.827000]: hello world 7289.827
+[INFO] [1542314690.611854, 7289.926000]: hello world 7289.926
+[INFO] [1542314690.711783, 7290.026000]: hello world 7290.026
+[INFO] [1542314690.812376, 7290.126000]: hello world 7290.126
+[INFO] [1542314690.912077, 7290.226000]: hello world 7290.226
+[INFO] [1542314691.012780, 7290.326000]: hello world 7290.326
+[INFO] [1542314691.112419, 7290.426000]: hello world 7290.426
+[INFO] [1542314691.212469, 7290.526000]: hello world 7290.526
+[INFO] [1542314691.313130, 7290.626000]: hello world 7290.626
+[INFO] [1542314691.413415, 7290.726000]: hello world 7290.726
+[INFO] [1542314691.513274, 7290.826000]: hello world 7290.826
+[INFO] [1542314691.613301, 7290.926000]: hello world 7290.926
+[INFO] [1542314691.713374, 7291.026000]: hello world 7291.026
+[INFO] [1542314691.813575, 7291.126000]: hello world 7291.126
+[INFO] [1542314691.914505, 7291.226000]: hello world 7291.226
+[INFO] [1542314692.014814, 7291.326000]: hello world 7291.326
+[INFO] [1542314692.114745, 7291.426000]: hello world 7291.426
+[INFO] [1542314692.215210, 7291.526000]: hello world 7291.526
+[INFO] [1542314692.315040, 7291.626000]: hello world 7291.626
+[INFO] [1542314692.415325, 7291.726000]: hello world 7291.726
+[INFO] [1542314692.516800, 7291.826000]: hello world 7291.826
+[INFO] [1542314692.616064, 7291.926000]: hello world 7291.926
+[INFO] [1542314692.715484, 7292.026000]: hello world 7292.026
+[INFO] [1542314692.816249, 7292.127000]: hello world 7292.127
+[INFO] [1542314692.915824, 7292.226000]: hello world 7292.226
+[INFO] [1542314693.016681, 7292.326000]: hello world 7292.326
+[INFO] [1542314693.116607, 7292.426000]: hello world 7292.426
+[INFO] [1542314693.216550, 7292.526000]: hello world 7292.526
+[INFO] [1542314693.316912, 7292.626000]: hello world 7292.626
+[INFO] [1542314693.416650, 7292.726000]: hello world 7292.726
+[INFO] [1542314693.517249, 7292.826000]: hello world 7292.826
+[INFO] [1542314693.617307, 7292.926000]: hello world 7292.926
+[INFO] [1542314693.717502, 7293.026000]: hello world 7293.026
+[INFO] [1542314693.817168, 7293.126000]: hello world 7293.126
+[INFO] [1542314693.916916, 7293.226000]: hello world 7293.226
+[INFO] [1542314694.018002, 7293.326000]: hello world 7293.326
+^C]0;jeeho@jeeho-Razer-Blade: ~/catkin_ws/src/pqp_server/scripts[01;32mjeeho@jeeho-Razer-Blade[00m:[01;34m~/catkin_ws/src/pqp_server/scripts[00m$ rosrun pqp_server tallker.py
+[INFO] [1542314751.310763, 0.000000]: hello world 0.0
+Traceback (most recent call last):
+  File "/home/jeeho/catkin_ws/src/pqp_server/scripts/talker.py", line 19, in <module>
+    talker()
+  File "/home/jeeho/catkin_ws/src/pqp_server/scripts/talker.py", line 13, in talker
+    pub.publish(hello_str)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/topics.py", line 879, in publish
+    data = args_kwds_to_message(self.data_class, args, kwds)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/msg.py", line 122, in args_kwds_to_message
+    return data_class(*args)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/gazebo_msgs/msg/_ModelStates.py", line 77, in __init__
+    super(ModelStates, self).__init__(*args, **kwds)
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genpy/message.py", line 294, in __in
